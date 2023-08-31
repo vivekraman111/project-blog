@@ -7,11 +7,14 @@ import { notFound } from "next/navigation";
 
 export const getBlogPostList = React.cache(async function () {
   const fileNames = await readDirectory("/content");
-
+  //const fileNames = await readDirectory(path.join(process.cwd(), "content"));
   const blogPosts = [];
 
   for (let fileName of fileNames) {
     const rawContent = await readFile(`/content/${fileName}`);
+    // const rawContent = await readFile(
+    //   path.join(process.cwd(), "content", fileName)
+    // );
 
     const { data: frontmatter } = matter(rawContent);
 
@@ -28,6 +31,9 @@ export const loadBlogPost = React.cache(async function (slug) {
   let rawContent;
   try {
     rawContent = await readFile(`/content/${slug}.mdx`);
+    // rawContent = await readFile(
+    //   path.join(process.cwd(), "content", `${slug}.mdx`)
+    // );
   } catch {
     notFound();
   }
@@ -44,11 +50,17 @@ export const loadPlaygroundCode = React.cache(async function (
   showFiles
 ) {
   const fileNames = await readDirectory(`/code-content/${folder}`);
+  // const fileNames = await readDirectory(
+  //   path.join(process.cwd(), "code-content", folder)
+  // );
 
   const codeFiles = {};
 
   for (let fileName of fileNames) {
     const code = await readFile(`/code-content/${folder}/${fileName}`);
+    // const code = await readFile(
+    //   path.join(process.cwd(), "code-content", folder, fileName)
+    // );
 
     codeFiles[`/${fileName}`] = { code };
     if (showFiles && !showFiles?.includes(fileName)) {
