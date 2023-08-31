@@ -15,7 +15,7 @@
   max-width: var(--content-width);
   padding: var(--viewport-padding);
   padding-top: calc(48px + 8vw);
-  padding-bottom: 64px;
+  padding-bottom: 48px;
 }
 
 .content h1 {
@@ -26,6 +26,7 @@
   color: var(--color-decorative-900);
   margin-bottom: 0px;
   font-weight: 400;
+  margin-bottom: 1rem;
 }
 .content time {
   font-weight: 500;

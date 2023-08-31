@@ -1,0 +1,30 @@
+.wrapper {
+  margin: 0px calc(var(--viewport-padding) * -1) 64px !important;
+}
+
+.innerWrapper.fullScreen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  border: 4px solid red;
+}
+
+.playground {
+}
+
+.playgroundHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 16px;
+  background-color: var(--color-gray-200);
+}
+
+.maxBtn {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+}

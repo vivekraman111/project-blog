@@ -1,0 +1,48 @@
+.tagsSection {
+  align-self: start;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tagWrapper {
+  display: block;
+  background-color: var(--color-decorative-200);
+  border-radius: 12px;
+}
+
+.tagWrapper:hover {
+  background-color: var(--color-decorative-300);
+}
+
+.tag {
+  display: block;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.selectedTag {
+  outline: 2px solid var(--color-secondary-500);
+  outline-offset: 3px;
+}
+
+.tagText {
+  display: block;
+  padding: 8px 16px;
+}
+
+.home {
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  background-color: var(--color-decorative-200);
+}
+
+.home:hover {
+  background-color: var(--color-decorative-300);
+}

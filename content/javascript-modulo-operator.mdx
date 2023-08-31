@@ -1,7 +1,8 @@
 ---
-title: 'Understanding the JavaScript Modulo Operator'
+title: "Understanding the JavaScript Modulo Operator"
 abstract: One of the most commonly-misunderstood operators is Modulo (%). In this tutorial, we'll unpack exactly what this little bugger does, and learn how it can help us solve practical problems.
-publishedOn: '2023-09-06T12:00:00-0400'
+publishedOn: "2023-09-06T12:00:00-0400"
+tags: ["programming", "web-development", "js", "react", "math", "modulo"]
 ---
 
 When I was first learning to code, I remember finding the Modulo operator (%) _extremely_ confusing. 😬
@@ -12,6 +13,10 @@ If you don't understand what it's doing, the values it produces seem completely 
 const what = 10 % 4; // 2
 const the = 10 % 10; // 0
 const heck = 4 % 10; // 4
+```
+
+```python
+# this is a Python comment not a heading
 ```
 
 In this blog post, we're going to learn how this operator works by refining our mental model for division. We'll also cover a practical, every-day use case for this curious fella.
@@ -28,9 +33,7 @@ Division can often feel pretty abstract or theoretical, but there's a practical 
 
 **Drag the slider to see how this operation can be visualized:**
 
-**TODO: Uncomment DivisionGroupsDemo**
-
-{/* <DivisionGroupsDemo /> */}
+<DivisionGroupsDemo />
 
 `12 ÷ 4` evaluates to `3`, because each group holds exactly 3 items. Essentially, we're figuring out how many items will be held inside each group.
 
@@ -48,9 +51,11 @@ This works if we're dividing up pizzas or cakes… **but what if the items are i
 
 In that case, we'd be able to fit 2 items into each group, and we'd be left with 3 additional items:
 
-**TODO: Uncomment DivisionGroupsDemo**
-
-{/* <DivisionGroupsDemo includeRemainderArea={true} numOfItems={11} initialNumOfGroups={4} /> */}
+<DivisionGroupsDemo
+  includeRemainderArea={true}
+  numOfItems={11}
+  initialNumOfGroups={4}
+/>
 
 **This is known as the _remainder_.** It's what the modulo operator produces.
 
@@ -74,16 +79,14 @@ Specifically, there's one sort of problem that I seem to run into a lot, where t
 
 For example, suppose we have an array of 3 colors. Each second, we want to switch to the next color in the list. When we reach the end of the list, we want to jump back to the first item:
 
-**TODO: Uncomment CircularColorsDemo**
-
-{/* <CircularColorsDemo /> */}
+<CircularColorsDemo />
 
 This is a surprisingly tricky problem. Suppose we have a variable called `timeElapsed` that starts at 0 and increments by 1 every second; we have to somehow map this ever-increasing value to an array with only 3 items.
 
 Essentially, we need to write a function that produces the following results:
 
 ```js
-const COLORS = ['red', 'yellow', 'blue'];
+const COLORS = ["red", "yellow", "blue"];
 
 getColor({ timeElapsed: 0 }); // 'red'
 getColor({ timeElapsed: 1 }); // 'yellow'
@@ -100,7 +103,7 @@ getColor({ timeElapsed: 8 }); // 'blue'
 Let's look at how the modulo operator can help us solve this problem:
 
 ```js
-const COLORS = ['red', 'yellow', 'blue'];
+const COLORS = ["red", "yellow", "blue"];
 
 function getColor({ timeElapsed }) {
   const colorIndex = timeElapsed % COLORS.length;
@@ -130,5 +133,13 @@ We can then use this `colorIndex` to look up the color from the `COLORS` array. 
 To understand why this works, it's worth remembering our new model for division: we're trying to divide `timeElapsed` into 3 equally-sized groups, without any fractional or decimal values. The remainder will always be either 0, 1, or 2. It will never be 3+, because if there _was_ 3 left, we could fit 1 more in each group!
 
 Essentially, it's as if we had the ability to create a “circular” array. No matter how large our underlying `timeElapsed` value grows, we can have it cycle indefinitely through the colors in the `COLORS` array.
+
+Here is the code in a Code Playground for you to experiment with
+
+<CodePlayground
+  dependencies={["react-feather", "clsx", "framer-motion"]}
+  folder="modulo"
+  showFiles={["App.js", "App.module.css"]}
+/>
 
 In my opinion, this trick alone makes the modulo operator worth learning! I've used this circular-array trick dozens of times over the years, and it's just one of several practical use cases for this handy operator.
