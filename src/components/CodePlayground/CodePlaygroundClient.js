@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./CodePlaygroundClient.module.css";
-import dynamic from "next/dynamic";
+//import dynamic from "next/dynamic";
 //const { Sandpack } = dynamic(() => import("@codesandbox/sandpack-react"));
 import { Sandpack } from "@codesandbox/sandpack-react";
 import { Maximize } from "react-feather";

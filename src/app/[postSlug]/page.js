@@ -86,10 +86,4 @@ async function BlogPost({ params }) {
   );
 }
 
-function withMetadata(Component, metadata) {
-  return function WithMetadataWrapper(props) {
-    return <Component {...props} metadata={metadata} />;
-  };
-}
-
 export default BlogPost;

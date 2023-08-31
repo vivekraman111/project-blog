@@ -1,8 +1,7 @@
-import { NextResponse } from "next/server";
-import { getBlogPostList, loadBlogPost } from "../../helpers/file-helpers";
+import { getBlogPostList } from "../../helpers/file-helpers";
 import RSS from "rss";
 
-export async function GET(request) {
+export async function GET() {
   const feed = new RSS({
     title: "Vivek Raman's developer blog",
     site_url: "https://zambool.com",
