@@ -35,7 +35,6 @@ async function Home({ searchParams }) {
       }:`}</h1>
       {blogPosts.map((post) => (
         <BlogSummaryCard
-          id={post.slug}
           key={post.slug}
           slug={post.slug}
           title={post.title}
