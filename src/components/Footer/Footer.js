@@ -42,7 +42,9 @@ function Footer() {
               <a href="https://twitter.com/pyaasa">Twitter</a>
             </li>
             <li>
-              <a href="https://github.com/vivekraman111">GitHub</a>
+              <a href="https://github.com/vivekraman111" rel="me">
+                GitHub
+              </a>
             </li>
           </ul>
         </nav>
