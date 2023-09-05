@@ -35,6 +35,12 @@ function RootLayout({ children }) {
         data-color-theme={theme}
         style={theme === "light" ? LIGHT_TOKENS : DARK_TOKENS}
       >
+        <head>
+          <link
+            rel="webmention"
+            href="https://webmention.io/zambool.com/webmention"
+          />
+        </head>
         <body>
           <Header initialTheme={theme} />
           <main>{children}</main>
